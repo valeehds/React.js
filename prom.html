@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promedio notas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="shortcut icon" href="https://play-lh.googleusercontent.com/-akJeqoRGU_ar9_iO6DeSe-QIt02mbrmTyszX1cXh7fOcCBqoHfeoXILBP9ORn2jgiW9" type="image/x-icon">
+
+    <script src="js/index.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Promedio final</h1>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="alert alert-info" style="font-size: 12px; font-family: poppins;;" role="alert">
+                    Por favor, ingresa tus notas con números enteros del 10 al 50.
+                    El promedio final se calculará sumando las tres notas y multiplicándolas por ciertos porcentajes.
+                    La nota del examen parcial se multiplica por el 30%, la del trabajo final por el 15%, y el promedio de las tres notas por el 55%.
+                </div>
+                <img src="https://cdn-icons-png.flaticon.com/512/5483/5483505.png" alt="" style="height: 56%;">
+            </div>
+            <div class="col-md-6">
+                <form class="formulario">
+                    <div class="form-row">
+                        <div class="form-group col-md-4 custom-form-group">
+                            <label for="nota1" class="" title="Las notas 1, 2 y 3 representan el 55% de la calificación final.">
+                                <i class="fas fa-info-circle tooltip-icon"></i> Nota 1<span> *</span>
+                            </label>
+                            <input type="number" class="form-control" id="nota1"  required>
+                        </div>
+                        
+                        <div class="form-group col-md-4">
+                            <label for="nota2" class="label"><i class="fas fa-info-circle tooltip-icon" title="Las notas 1, 2 y 3 representan el 55% de la calificación final.">
+                            </i> Nota 2<span> *</span></label></label>
+                            <input type="number" class="form-control" id="nota2" required >
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="nota3" class="label"><i class="fas fa-info-circle tooltip-icon" title="Las notas 1, 2 y 3 representan el 55% de la calificación final.">
+                            </i> Nota 3<span> *</span></label></label>
+                            <input type="number" class="form-control" id="nota3" required >
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="examenParcial" class="label"><i class="fas fa-info-circle tooltip-icon" title="El examen parcial representa el 30% de la calificación final.">
+                            </i> Examen parcial <span> *</span></label></label>
+                            <input type="number" class="form-control" name="" id="examenParcial" required >
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="examenParcial" class="label"><i class="fas fa-info-circle tooltip-icon" title="El trabajo final representa el 15% de la calificación final.">
+                            </i> Trabajo final <span> *</span></label></label>
+                            <input type="number" class="form-control" name="" id="trabajoFinal" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="promedio">Su promedio es: </label>
+                        <input id="notaFinal" placeholder="" type="text" class="form-control" id="promedio" readonly>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button class="btn btn-secondary btn-block" type="reset">Reintentar</button>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-primary btn-block" type="button" onclick="promedio()">Enviar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.querySelectorAll('input[type="number"]').forEach(function(input) {
+            input.addEventListener('input', function() {
+                let value = this.value;
+                if (value.length > 2) {
+                    this.value = value.slice(0, 2);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
